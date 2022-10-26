@@ -106,8 +106,8 @@ def BFS(jar1, jar2):
     if not isSolvable:
         print("No solution")
 
-def heuristic_function(jar1,jar2, target_cap = target_cap):
-    return abs(target_cap-jar1.curr_cap-jar2.curr_cap)
+def heuristic_function(jar1,jar2,level, target_cap = target_cap):
+    return abs(target_cap-jar1.curr_cap-jar2.curr_cap+level)
 
 def a_star():
     m = {}
@@ -140,24 +140,24 @@ def a_star():
         best_h = []
         fill1 = (u[0].fill_jar(), u[1])
         if (fill1[0].curr_cap, fill1[1].curr_cap) not in m:
-            best_h.append((heuristic_function(fill1[0], fill1[1]), [fill1[0], fill1[1]]))
+            best_h.append((heuristic_function(fill1[0], fill1[1],level), [fill1[0], fill1[1]]))
         fill2 = (u[0], u[1].fill_jar())
         if (fill2[0].curr_cap, fill2[1].curr_cap) not in m:
-            best_h.append((heuristic_function(fill2[0], fill2[1]), [fill2[0], fill2[1]]))
+            best_h.append((heuristic_function(fill2[0], fill2[1],level), [fill2[0], fill2[1]]))
 
         empty1 = (u[0].empty_jar(), u[1])
         if (empty1[0].curr_cap, empty1[1].curr_cap) not in m:
-            best_h.append((heuristic_function(empty1[0], empty1[1]), [empty1[0], empty1[1]]))
+            best_h.append((heuristic_function(empty1[0], empty1[1],level), [empty1[0], empty1[1]]))
         empty2 = (u[0], u[1].empty_jar())
         if (empty2[0].curr_cap, empty2[1].curr_cap) not in m:
-            best_h.append((heuristic_function(empty2[0], empty2[1]), [empty2[0], empty2[1]]))
+            best_h.append((heuristic_function(empty2[0], empty2[1],level), [empty2[0], empty2[1]]))
 
         u1 = u[0].move_capacity(u[1])
         if (u1[0].curr_cap, u1[1].curr_cap) not in m:
-            best_h.append((heuristic_function(u1[0], u1[1]), [u1[0], u1[1]]))
+            best_h.append((heuristic_function(u1[0], u1[1],level), [u1[0], u1[1]]))
         u2 = u[1].move_capacity(u[0], invert = True)
         if (u2[0].curr_cap, u2[1].curr_cap) not in m:
-            best_h.append((heuristic_function(u2[0], u2[1]), [u2[0], u2[1]]))
+            best_h.append((heuristic_function(u2[0], u2[1],level), [u2[0], u2[1]]))
         
         best_h.sort(key=lambda x:x[0])
         #print(best_h[0][0], best_h[0][1][0].curr_cap, best_h[0][1][1].curr_cap)
