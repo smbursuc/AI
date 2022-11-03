@@ -34,6 +34,13 @@ def get_column_vals(matrix,index):
         vals.append(matrix[i][index])
     return vals
 
+
+# strategie dominanta = 
+# Player A = linie care are valorile maxime de pe coloane
+# Player B = coloana care are valorile maxime de pe linie
+# echilibrul nash = 
+# intersectia coordonatelor tuplelor unde se gasesc valorile de mai sus
+
 def find_dominant_strategies_2(matrix,player,**kwargs):
     max_c = []
     max_l = []
@@ -54,6 +61,7 @@ def find_dominant_strategies_2(matrix,player,**kwargs):
             for j in range(len(col)):
                 if int(col[j][0]) == max_col and i!= max_i:
                     max_l.append((j,i))
+        print(max_c)
         unique = np.unique(max_col_j)
         if len(unique) == 1:
             if(kwargs.get('display')==True):
