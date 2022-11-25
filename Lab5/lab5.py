@@ -1,6 +1,6 @@
 import numpy as np
 
-file = open("input.txt")
+file = open("input_lab.txt")
 lines = [line.rstrip() for line in file]
 
 moves = {}
@@ -85,6 +85,7 @@ def find_dominant_strategies_2(matrix,player,**kwargs):
             for j in range(len(line)):
                 if int(line[j][1]) == max_line and j!= max_j:
                     max_l.append((i,j))
+        print(max_l)
         unique = np.unique(max_line_j)
         if len(unique) == 1:
             if(kwargs.get('display')==True):

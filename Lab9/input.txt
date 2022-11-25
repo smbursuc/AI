@@ -1,0 +1,5 @@
+no_cheese 0
+small_cheese 1
+big_cheese 10
+poison -10
+gt_five_steps 0
