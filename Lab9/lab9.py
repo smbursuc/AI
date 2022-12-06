@@ -48,8 +48,8 @@ def q_learning(state):
     episodes = 10000
     epsilon = 1.0
     alpha = 0.1
-    gamma = 1
-    decrease = 0.005
+    gamma = 0.99
+    decrease = 0.01
     while episodes > 0:
     #for i in range(0,50):
         action = -1
