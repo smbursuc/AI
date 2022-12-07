@@ -1,7 +1,6 @@
 import random
 from itertools import product
 import numpy as np
-import pprint
 r = [[-1 for j in range(12)] for i in range(4)]
 
 
