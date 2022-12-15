@@ -35,12 +35,24 @@ for triple in triples:
     print(triple)
 
 
+def find_all_answers(attribute1,attribute2,answer_index):
+    answers = []
+    if attribute2 == None:
+        for triple in triples:
+            if attribute1 in triple:
+                answers.append(triple[answer_index])
+    else:
+        for triple in triples:
+            if attribute1 in triple and attribute2 in triple:
+                answers.append(triple[answer_index])
+    return answers
+
+
 def play(use_synonym):
     stop = False
     while not stop:
 
         concept = random.choice(triples)
-        print(concept)
         question_index = random.choice([1, 2, 3])
 
         questions = {1:{"q":0,"a":2}, 2:{"q":[0,2],"a":1}, 3:{"q":2,"a":0}}
@@ -54,6 +66,12 @@ def play(use_synonym):
         else:
             print(f"Cine este in relatie cu {concept[i]}?")
 
+
+        if question_index == 2:
+            answers = find_all_answers(concept[questions[question_index]["q"][0]],concept[questions[question_index]["q"][1]],questions[question_index]["a"])
+        else:
+            answers = find_all_answers(concept[questions[question_index]["q"]],None,questions[question_index]["a"])
+        print(answers)
         
         synonyms = []
         answer_i = questions[question_index]["a"]
@@ -72,12 +90,12 @@ def play(use_synonym):
 
 
         if not use_synonym:
-            if answer == concept[answer_i]:
+            if answer in answers:
                 print("corect")
             else:
                 print("gresit")
         else:
-            if answer == concept[answer_i] or answer in synonyms:
+            if answer in answers or answer in synonyms:
                 print("corect")
             else:
                 print("gresit")
