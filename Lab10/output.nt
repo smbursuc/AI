@@ -50,23 +50,23 @@
 :DarkMeatFowlCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Dry ;
-                    owl:onProperty vin:hasSugar ] ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Restriction ;
                     owl:hasValue :Light ;
                     owl:onProperty vin:hasBody ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Red ;
-                    owl:onProperty vin:hasColor ] ;
+                    owl:hasValue :Delicate ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Delicate ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :Dry ;
+                    owl:onProperty vin:hasSugar ] ;
+            owl:onProperty :hasDrink ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :Red ;
+                    owl:onProperty vin:hasColor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :DarkMeatFowl ;
@@ -75,8 +75,8 @@
 :DessertCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Strong ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :Sweet ;
+                    owl:onProperty vin:hasSugar ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
@@ -85,8 +85,8 @@
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Sweet ;
-                    owl:onProperty vin:hasSugar ] ;
+                    owl:hasValue :Strong ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :Dessert ;
@@ -145,13 +145,8 @@
 :LightMeatFowlCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Medium ;
-                    owl:onProperty vin:hasBody ] ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :White ;
-                    owl:onProperty vin:hasColor ] ;
+                    owl:hasValue :Dry ;
+                    owl:onProperty vin:hasSugar ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
@@ -160,8 +155,13 @@
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Dry ;
-                    owl:onProperty vin:hasSugar ] ;
+                    owl:hasValue :White ;
+                    owl:onProperty vin:hasColor ] ;
+            owl:onProperty :hasDrink ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :Medium ;
+                    owl:onProperty vin:hasBody ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :LightMeatFowl ;
@@ -199,6 +199,11 @@
 :NonRedMeatCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :White ;
+                    owl:onProperty vin:hasColor ] ;
+            owl:onProperty :hasDrink ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
                     owl:hasValue :Strong ;
                     owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ],
@@ -211,11 +216,6 @@
             owl:allValuesFrom [ a owl:Restriction ;
                     owl:hasValue :Dry ;
                     owl:onProperty vin:hasSugar ] ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :White ;
-                    owl:onProperty vin:hasColor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :NonRedMeat ;
@@ -223,6 +223,16 @@
 
 :NonSpicyRedMeatCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :Red ;
+                    owl:onProperty vin:hasColor ] ;
+            owl:onProperty :hasDrink ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :Medium ;
+                    owl:onProperty vin:hasBody ] ;
+            owl:onProperty :hasDrink ],
+        [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
                     owl:allValuesFrom [ a owl:Class ;
                             owl:oneOf ( :Strong :Moderate ) ] ;
@@ -232,16 +242,6 @@
             owl:allValuesFrom [ a owl:Restriction ;
                     owl:hasValue :Dry ;
                     owl:onProperty vin:hasSugar ] ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Red ;
-                    owl:onProperty vin:hasColor ] ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Medium ;
-                    owl:onProperty vin:hasBody ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :NonSpicyRedMeat ;
@@ -250,13 +250,13 @@
 :NonSweetFruitCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Delicate ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :OffDry ;
+                    owl:onProperty vin:hasSugar ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :OffDry ;
-                    owl:onProperty vin:hasSugar ] ;
+                    owl:hasValue :Delicate ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :NonSweetFruit ;
@@ -267,13 +267,13 @@
 :OtherTomatoBasedFoodCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Red ;
-                    owl:onProperty vin:hasColor ] ;
+                    owl:hasValue :Moderate ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Moderate ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :Medium ;
+                    owl:onProperty vin:hasBody ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
@@ -282,8 +282,8 @@
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Medium ;
-                    owl:onProperty vin:hasBody ] ;
+                    owl:hasValue :Red ;
+                    owl:onProperty vin:hasColor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :OtherTomatoBasedFood ;
@@ -304,8 +304,8 @@
 :PastaWithHeavyCreamCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Moderate ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :White ;
+                    owl:onProperty vin:hasColor ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
@@ -319,8 +319,8 @@
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :White ;
-                    owl:onProperty vin:hasColor ] ;
+                    owl:hasValue :Moderate ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :PastaWithHeavyCreamSauce ;
@@ -329,11 +329,6 @@
 :PastaWithLightCreamCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Delicate ;
-                    owl:onProperty vin:hasFlavor ] ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Restriction ;
                     owl:hasValue :Dry ;
                     owl:onProperty vin:hasSugar ] ;
             owl:onProperty :hasDrink ],
@@ -341,6 +336,11 @@
             owl:allValuesFrom [ a owl:Restriction ;
                     owl:hasValue :Light ;
                     owl:onProperty vin:hasBody ] ;
+            owl:onProperty :hasDrink ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :Delicate ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
@@ -379,13 +379,8 @@
 :PastaWithSpicyRedSauceCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Red ;
-                    owl:onProperty vin:hasColor ] ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Strong ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :Dry ;
+                    owl:onProperty vin:hasSugar ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
@@ -394,8 +389,13 @@
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Dry ;
-                    owl:onProperty vin:hasSugar ] ;
+                    owl:hasValue :Red ;
+                    owl:onProperty vin:hasColor ] ;
+            owl:onProperty :hasDrink ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
+                    owl:hasValue :Strong ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :PastaWithSpicyRedSauce ;
@@ -441,14 +441,14 @@
 :ShellfishCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:allValuesFrom [ a owl:Class ;
-                            owl:oneOf ( :Moderate :Strong ) ] ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :Full ;
+                    owl:onProperty vin:hasBody ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Full ;
-                    owl:onProperty vin:hasBody ] ;
+                    owl:allValuesFrom [ a owl:Class ;
+                            owl:oneOf ( :Moderate :Strong ) ] ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :Shellfish ;
@@ -459,8 +459,8 @@
 :SpicyRedMeatCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Moderate ;
-                    owl:onProperty vin:hasFlavor ] ;
+                    owl:hasValue :Red ;
+                    owl:onProperty vin:hasColor ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
@@ -469,13 +469,13 @@
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Dry ;
-                    owl:onProperty vin:hasSugar ] ;
+                    owl:hasValue :Moderate ;
+                    owl:onProperty vin:hasFlavor ] ;
             owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Restriction ;
-                    owl:hasValue :Red ;
-                    owl:onProperty vin:hasColor ] ;
+                    owl:hasValue :Dry ;
+                    owl:onProperty vin:hasSugar ] ;
             owl:onProperty :hasDrink ] ;
     owl:intersectionOf ( :MealCourse [ a owl:Restriction ;
                 owl:allValuesFrom :SpicyRedMeat ;
@@ -526,10 +526,10 @@
 
 :Meal a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:allValuesFrom :MealCourse ;
             owl:onProperty :course ],
         [ a owl:Restriction ;
-            owl:allValuesFrom :MealCourse ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty :course ],
         :ConsumableThing ;
     owl:disjointWith :EdibleThing,
@@ -714,11 +714,11 @@
 
 :MealCourse a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom :Wine ;
-            owl:onProperty :hasDrink ],
-        [ a owl:Restriction ;
             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty :hasFood ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Wine ;
+            owl:onProperty :hasDrink ],
         [ a owl:Restriction ;
             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty :hasDrink ],

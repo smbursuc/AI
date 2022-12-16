@@ -3,7 +3,7 @@ graph = Graph()
 graph.parse('food.rdf')
 
 
-graph.serialize("output.nt", format="n3", encoding="utf-8")
+# graph.serialize("output.nt", format="n3", encoding="utf-8")
 
 import pprint
 for stmt in graph:
@@ -24,7 +24,7 @@ import random
 triples = []
 
 for s, p, o in graph:
-    if len(s.split('#')) > 1 and len(o.split('#')) > 1:
+    if len(s.split('#')) > 1 and len(o.split('#')) > 1 and len(p.split('#')) > 1:
         s = s.split('#')[1]
         o = o.split('#')[1]
         p = p.split('#')[1]
@@ -54,17 +54,41 @@ def play(use_synonym):
 
         concept = random.choice(triples)
         question_index = random.choice([1, 2, 3])
+        print(concept)
 
         questions = {1:{"q":0,"a":2}, 2:{"q":[0,2],"a":1}, 3:{"q":2,"a":0}}
 
 
         i = questions[question_index]["q"]
+
+        synonyms = []
+        answer_i = questions[question_index]["a"]
+        if use_synonym:
+            for syn in wn.synsets(concept[answer_i]):
+                for l in syn.lemmas():
+                    synonyms.append(l.name())
+            print(synonyms)
+        
+        synonym = None
+        if len(synonyms)>0:
+            synonym = synonyms[0]
+        
+        use_synonym_in_question = random.choice([False,True])
+
         if question_index == 1:
-            print(f"Cine este in relatie cu {concept[i]}?")
+            if use_synonym_in_question == False:
+                print(f"Cine este in relatie cu {concept[i]}?")
+            elif synonym is not None:
+                print(f"Cine este in relatie cu {synonym}?")
         elif question_index == 2:
             print(f"Care este relatia dintre {concept[i[0]]} si {concept[i[1]]}?")
         else:
-            print(f"Cine este in relatie cu {concept[i]}?")
+            if use_synonym_in_question == False:
+                print(f"Cine este in relatie cu {concept[i]}?")
+            elif synonym is not None:
+                print(f"Cine este in relatie cu {synonym}?")
+
+        
 
 
         if question_index == 2:
